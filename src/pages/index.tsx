@@ -1,56 +1,45 @@
-import {
-  Link as ChakraLink,
-  Text,
-  Code,
-  List,
-  ListIcon,
-  ListItem,
-} from '@chakra-ui/react'
-import { CheckCircleIcon, LinkIcon } from '@chakra-ui/icons'
+import React from "react";
 
-import { Hero } from '../components/Hero'
-import { Container } from '../components/Container'
-import { Main } from '../components/Main'
-import { DarkModeSwitch } from '../components/DarkModeSwitch'
-import { CTA } from '../components/CTA'
-import { Footer } from '../components/Footer'
+//import { EXCHANGE_RATES as QUERY, client } from "../queries/exchangeRates";
+import { CHARACTERS as QUERY, client } from "../queries/characters";
 
-const Index = () => (
-  <Container height="100vh">
-    <Hero />
-    <Main>
-      <Text>
-        Example repository of <Code>Next.js</Code> + <Code>chakra-ui</Code> +{' '}
-        <Code>typescript</Code>.
-      </Text>
+import { Hero } from "../components/Hero";
+import { Container } from "../components/Container";
+import { Main } from "../components/Main";
+import { DarkModeSwitch } from "../components/DarkModeSwitch";
+import { Footer } from "../components/Footer";
 
-      <List spacing={3} my={0}>
-        <ListItem>
-          <ListIcon as={CheckCircleIcon} color="green.500" />
-          <ChakraLink
-            isExternal
-            href="https://chakra-ui.com"
-            flexGrow={1}
-            mr={2}
-          >
-            Chakra UI <LinkIcon />
-          </ChakraLink>
-        </ListItem>
-        <ListItem>
-          <ListIcon as={CheckCircleIcon} color="green.500" />
-          <ChakraLink isExternal href="https://nextjs.org" flexGrow={1} mr={2}>
-            Next.js <LinkIcon />
-          </ChakraLink>
-        </ListItem>
-      </List>
-    </Main>
+//import ExchangeRate from "../components/ExchangeRate";
+import Characters from "../components/Characters";
 
-    <DarkModeSwitch />
-    <Footer>
-      <Text>Next ❤️ Chakra</Text>
-    </Footer>
-    <CTA />
-  </Container>
-)
+const Index = ({ data }) => {
+  //console.log(data);
 
-export default Index
+  return (
+    <Container minH="100vh" bg="gray.400">
+      <DarkModeSwitch />
+      <Hero title="The Rick and Morty" />
+
+      <Main>
+        {/* <ExchangeRate data={data} /> */}
+        <Characters data={data} />
+      </Main>
+
+      <Footer>Next ❤️ Chakra ❤️ Apollo client ❤️ GraphQL</Footer>
+    </Container>
+  );
+};
+
+export async function getStaticProps() {
+  const { data } = await client.query({
+    query: QUERY,
+  });
+
+  return {
+    props: {
+      data,
+    },
+  };
+}
+
+export default Index;
