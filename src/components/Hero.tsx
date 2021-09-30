@@ -11,7 +11,7 @@ export const Hero = ({ title }: { title: string }) => (
       justify="center"
       h="2rem"
     >
-      <Text>GraphQL Fetch Data Versuche...</Text>
+      <Text>GraphQL Data Fetching...</Text>
     </Box>
 
     <Flex
@@ -23,7 +23,8 @@ export const Hero = ({ title }: { title: string }) => (
       bgClip="text"
       //position="fixed"
       //top="0"
-      pt="1rem"
+      pt="4rem"
+      pb="1rem"
     >
       <Heading fontSize="6vw">{title}</Heading>
     </Flex>

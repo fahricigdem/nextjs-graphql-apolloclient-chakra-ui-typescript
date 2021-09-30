@@ -16,7 +16,7 @@ const Index = ({ data }) => {
   //console.log(data);
 
   return (
-    <Container minH="100vh" bg="gray.400">
+    <Container minH="100vh">
       <DarkModeSwitch />
       <Hero title="The Rick and Morty" />
 
