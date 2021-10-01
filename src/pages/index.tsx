@@ -18,7 +18,7 @@ const Index = ({ data }) => {
   return (
     <Container minH="100vh">
       <DarkModeSwitch />
-      <Hero title="The Rick and Morty" />
+      <Hero title={"The Rick and Morty"} />
 
       <Main>
         {/* <ExchangeRate data={data} /> */}

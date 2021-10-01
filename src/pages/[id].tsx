@@ -5,6 +5,7 @@ import { DarkModeSwitch } from "../components/DarkModeSwitch";
 import { Footer } from "../components/Footer";
 import { Hero } from "../components/Hero";
 import { Main } from "../components/Main";
+import { CHARACTERS } from "../queries/characters";
 
 export async function getStaticProps(context) {
   const id = context.params.id;
@@ -49,38 +50,6 @@ export async function getStaticPaths() {
     uri: "https://rickandmortyapi.com/graphql",
     cache: new InMemoryCache(),
   });
-
-  const CHARACTERS = gql`
-    query {
-      characters {
-        info {
-          count
-          pages
-        }
-        results {
-          name
-          id
-          status
-          species
-          gender
-          location {
-            name
-            id
-          }
-          image
-          origin {
-            name
-            id
-          }
-          episode {
-            id
-            episode
-            air_date
-          }
-        }
-      }
-    }
-  `;
 
   const { data } = await client.query({
     query: CHARACTERS,

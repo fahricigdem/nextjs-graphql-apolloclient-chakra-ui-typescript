@@ -10,13 +10,13 @@ const Character = ({ data }) => {
   //console.log(data);
   const { colorMode } = useColorMode();
 
-  const bgColor = { light: "gray.100", dark: "gray.800" };
+  const bgColor = { light: "#E9D8FDdd", dark: "#1A365D66" };
 
   const color = { light: "black", dark: "white" };
 
   const shadow = {
-    light: "#aaaaaa",
-    dark: "#000000",
+    light: "#87f6",
+    dark: "#880080f0",
   };
 
   return (
@@ -24,11 +24,7 @@ const Character = ({ data }) => {
       direction={["column"]}
       bg={bgColor[colorMode]}
       color={color[colorMode]}
-      boxShadow={[
-        "5px 5px 5px 5px" + shadow[colorMode],
-        "5px 5px 5px 5px" + shadow[colorMode],
-        "30px 30px 30px 30px" + shadow[colorMode],
-      ]}
+      boxShadow={[" 0px 0px 8px 8px" + shadow[colorMode]]}
     >
       <Image src={data.image} alt={data.name} objectFit="cover" />
       <Box px="4" py="2">

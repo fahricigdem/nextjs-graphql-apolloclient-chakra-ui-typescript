@@ -1,4 +1,4 @@
-import { Flex, Heading, Text, Box } from "@chakra-ui/react";
+import { Flex, Heading, Text, Box, Link } from "@chakra-ui/react";
 
 export const Hero = ({ title }: { title: string }) => (
   <>
@@ -10,19 +10,16 @@ export const Hero = ({ title }: { title: string }) => (
       align="center"
       justify="center"
       h="2rem"
+      py="1"
     >
-      <Text>GraphQL Data Fetching...</Text>
+      <Link href="/">GraphQL Data Fetching...</Link>
     </Box>
 
     <Flex
       justifyContent="center"
       alignItems="center"
-      //height="100vh"
-
       bgGradient="linear(to-l, #7928CA, #FF0080)"
       bgClip="text"
-      //position="fixed"
-      //top="0"
       pt="4rem"
       pb="1rem"
     >

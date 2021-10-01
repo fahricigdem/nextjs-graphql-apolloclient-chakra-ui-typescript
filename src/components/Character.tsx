@@ -18,13 +18,13 @@ const Character = ({ data }) => {
   //console.log(data);
   const { colorMode } = useColorMode();
 
-  const bgColor = { light: "gray.100", dark: "gray.800" };
+  const bgColor = { light: "#E9D8FDee", dark: "#1A365D88" };
 
   const color = { light: "black", dark: "white" };
 
   const shadow = {
-    light: "#aaaaaa",
-    dark: "#000000",
+    light: "#87f6",
+    dark: "#aa008090",
   };
 
   return (
@@ -34,12 +34,18 @@ const Character = ({ data }) => {
         w="90%"
         bg={bgColor[colorMode]}
         color={color[colorMode]}
-        _hover={{ borderLeft: "solid 5px #ff1111", cursor: "pointer" }}
-        boxShadow={[
-          "5px 5px 5px 5px" + shadow[colorMode],
-          "5px 5px 5px 5px" + shadow[colorMode],
-          "30px 30px 30px 30px" + shadow[colorMode],
-        ]}
+        _hover={{
+          boxShadow: `0px 12px 20px ${shadow[colorMode]}`,
+          cursor: "pointer",
+          color: "#ff0080",
+        }}
+        _active={{
+          borderLeft: "solid 8px #aa0080",
+          borderRight: "solid 8px #aa0080",
+          cursor: "pointer",
+          color: "#ff0080",
+        }}
+        boxShadow={["0px 4px 10px" + shadow[colorMode]]}
         align="center"
       >
         <Image

@@ -7,7 +7,7 @@ export const client = new ApolloClient({
 
 export const CHARACTERS = gql`
   query {
-    characters(page: 1) {
+    characters(page: 2) {
       info {
         count
         pages

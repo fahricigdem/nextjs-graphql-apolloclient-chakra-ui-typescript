@@ -2,7 +2,7 @@ import { Stack, StackProps } from "@chakra-ui/react";
 
 export const Main = (props: StackProps) => (
   <Stack
-    spacing="1.5rem"
+    spacing="1.8rem"
     //width="95%"
     maxWidth="48rem"
     //mt="-45vh"
