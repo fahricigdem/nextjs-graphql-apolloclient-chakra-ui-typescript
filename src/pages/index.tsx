@@ -1,7 +1,7 @@
 import React from "react";
 
 //import { EXCHANGE_RATES as QUERY, client } from "../queries/exchangeRates";
-import { CHARACTERS as QUERY, client } from "../queries/characters";
+import { CHARACTERS, client } from "../queries/characters";
 
 import { Hero } from "../components/Hero";
 import { Container } from "../components/Container";
@@ -32,7 +32,7 @@ const Index = ({ data }) => {
 
 export async function getStaticProps() {
   const { data } = await client.query({
-    query: QUERY,
+    query: CHARACTERS,
   });
 
   return {

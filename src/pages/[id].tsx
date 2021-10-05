@@ -5,7 +5,7 @@ import { DarkModeSwitch } from "../components/DarkModeSwitch";
 import { Footer } from "../components/Footer";
 import { Hero } from "../components/Hero";
 import { Main } from "../components/Main";
-import { CHARACTERS } from "../queries/characters";
+import { CHARACTERS, client as clientForPaths } from "../queries/characters";
 
 export async function getStaticProps(context) {
   const id = context.params.id;
@@ -46,12 +46,7 @@ export async function getStaticProps(context) {
 }
 
 export async function getStaticPaths() {
-  const client = new ApolloClient({
-    uri: "https://rickandmortyapi.com/graphql",
-    cache: new InMemoryCache(),
-  });
-
-  const { data } = await client.query({
+  const { data } = await clientForPaths.query({
     query: CHARACTERS,
   });
 
@@ -64,6 +59,7 @@ export async function getStaticPaths() {
     fallback: false,
   };
 }
+
 function CharacterDinamik({ data }) {
   return (
     <Container minH="100vh">
